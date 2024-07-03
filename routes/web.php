@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TamuUmumController;
 use App\Http\Controllers\TamuDinasController;
+use App\Http\Controllers\DepartemenController;
 use App\Http\Controllers\TamuPengawasController;
 
 Route::get('/', function () {
@@ -12,4 +13,4 @@ Route::get('/', function () {
 Route::resource('/tamudinas', TamuDinasController::class); 
 Route::resource('/tamupengawas', TamuPengawasController::class);
 Route::resource('/tamuumum', TamuUmumController::class); 
-Route::resource('/t', TamuUmumController::class); 
+Route::resource('/departemen', DepartemenController::class); 
