@@ -30,6 +30,7 @@ class DepartemenController extends Controller
 
         $validateData = $request->validate(
             [
+                
                 'nama' => 'required|max:255',
             ],
             [
