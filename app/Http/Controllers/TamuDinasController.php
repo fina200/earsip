@@ -13,6 +13,8 @@ class TamuDinasController extends Controller
     public function index()
     {
         //
+        $data=TamuDinas::all();
+        return view ('tamu.tamudinas', compact('data'));
     }
 
     /**
@@ -49,7 +51,7 @@ class TamuDinasController extends Controller
             ]
         );
         TamuDinas::create($validateData);
-        return redirect('/home');
+        return redirect('/tamudinas');
     }
 
     /**
