@@ -14,7 +14,7 @@ class TamuPengawasController extends Controller
     {
         //
         $data=TamuPengawas::all();
-        return view ('tamu.tamudinas', compact('data'));
+        return view ('tamu.tamupengawas', compact('data'));
     }
 
     /**
@@ -51,7 +51,7 @@ class TamuPengawasController extends Controller
             ]
         );
         TamuPengawas::create($validateData);
-        return redirect('/tamudinas');
+        return redirect('/tamupengawas');
     }
 
     /**
@@ -86,4 +86,3 @@ class TamuPengawasController extends Controller
         //
     }
 }
-
