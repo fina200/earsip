@@ -1,6 +1,24 @@
 @extends('template.main')
 
 @section('content')
+
+<div class="card mt-2 ">
+    <div class="card-header bg-secondary text-white font-weight-bold ">
+        Form Data Departemen
+    </div>
+        <div class="card-body ">
+        <form method = "post" action = "">
+            <div class="form-group ">
+                <label for="nama_departemen">Nama Departemen</label>
+                <input type="text" class="form-control" id="nama_departemen" name="nama_departemen"value="<?=@$vnama_departemen?>"required class = "form-control">
+            </div>
+            <button type="submit" name="bsimpan" class="btn btn-primary">Simpan</button>
+            <button type="reset" name="bbatal" class="btn btn-danger">Batal</button>
+            </form>
+        </div>
+    </div>
+ 
+
 <div class="card mt-2 ">
     <div class="card-header bg-secondary text-white font-weight-bold">
         Data Departemen
