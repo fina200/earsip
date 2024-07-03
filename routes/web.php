@@ -12,4 +12,4 @@ Route::get('/', function () {
 Route::resource('/tamudinas', TamuDinasController::class); 
 Route::resource('/tamupengawas', TamuPengawasController::class);
 Route::resource('/tamuumum', TamuUmumController::class); 
-
+Route::resource('/t', TamuUmumController::class); 
