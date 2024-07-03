@@ -9,7 +9,7 @@ class TamuPengawas extends Model
 {
     use HasFactory;
     
-    protected $table = 'tamu_dinas';
+    protected $table = 'tamu_pengawas';
 
     protected $fillable = [
         'nama',
