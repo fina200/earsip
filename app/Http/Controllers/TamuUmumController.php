@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\TamuUmum;
 use Illuminate\Http\Request;
 
-class TamuDinasController extends Controller
+class TamuUmumController extends Controller
 {
     /**
      * Display a listing of the resource.
