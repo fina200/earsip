@@ -11,7 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('tamu_pengawas', function (Blueprint $table) {
+            $table->id();
+            $table->string('nama');
+            $table->string('instansi');
+            $table->string('tujuan');
+            $table->string('saran');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -19,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('tamu_pengawas');
     }
 };
