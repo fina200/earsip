@@ -8,6 +8,7 @@
     </div>
         <div class="card-body ">
         <form method = "post" action = "{{ url('departemen') }}">
+            @csrf
             <div class="form-group ">
                 <label for="nama_departemen">Nama Departemen</label>
                 <input type="text" class="form-control" id="nama_departemen" name="nama_departemen"required class = "form-control">
