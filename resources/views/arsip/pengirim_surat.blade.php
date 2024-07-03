@@ -1,3 +1,6 @@
+@extends('template.main')
+
+@section('content')
 <div class="card mt-2 ">
     <div class="card-header bg-secondary text-white font-weight-bold">
         Form Data Pengirim Surat

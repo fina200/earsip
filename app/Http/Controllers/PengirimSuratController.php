@@ -11,7 +11,7 @@ class PengirimSuratController extends Controller
     {
         //
         $data=PengirimSurat::all();
-        return view ('arsip.pengirimsurat', compact('data'));
+        return view ('arsip.pengirim_surat', compact('data'));
     }
 
     /**
@@ -48,7 +48,7 @@ class PengirimSuratController extends Controller
             ]
         );
         PengirimSurat::create($validateData);
-        return redirect('/pengirimsurat');
+        return redirect('/pengirim_surat');
     }
 
     /**

@@ -1,9 +1,12 @@
+@extends('template.main')
+
+@section('content')
 <div class="card mt-2 ">
     <div class="card-header bg-secondary text-white font-weight-bold">
         Data Departemen
     </div>
         <div class="card-body">
-            <table class="table table-bordered table-hovered table-striped table  ">
+            <table class="table table-bordered table-hovered table-striped table">
                 <tr class = text-center>
                     <th>No</th>
                     <th>Nama Departemen</th>
