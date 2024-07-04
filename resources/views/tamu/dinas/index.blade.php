@@ -1,6 +1,5 @@
-@extends('template.main')
-
-@section('content')
+@extends('tamu.dinas.tamudinas')
+@section('tamudinas')
     <div class="card mt-2 ">
         <div class="card-header bg-secondary text-white font-weight-bold">
             Form Tamu Dinas
@@ -31,39 +30,5 @@
                 <button type="reset" name="bbatal" class="btn btn-danger bi bi-x-square"> Batal</button>
             </form>
         </div>
-    </div>
-
-
-    <div class="card mt-2">
-        <div class="card-header bg-secondary text-white font-weight-bold">
-            Data Tamu Dinas
-        </div>
-        <div class="card-body">
-            <table class="table table-bordered table-hovered table-striped">
-                <tr class=text-center>
-                    <th>No</th>
-                    <th>Nama Tamu</th>
-                    <th>Instansi</th>
-                    <th>Tujuan</th>
-                    <th>Saran</th>
-                    <th>Aksi</th>
-                </tr>
-                @foreach ($data as $d)
-                    <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>{{ $d->nama }}</td>
-                        <td>{{ $d->instansi }}</td>
-                        <td>{{ $d->tujuan }}</td>
-                        <td>{{ $d->saran }}</td>
-                        <td>
-                            <a href="?halaman=tamu_dinas&hal=edit&id=" class="btn btn-outline-success bi bi-pencil"></a>
-                            <a href="?halaman=tamu_dinas&hal=hapus&id=" class="btn btn-outline-danger bi bi-trash"
-                                onclick="return confirm ('Apakah anda yakin ingin menghapus data in?')"> </a>
-                        </td>
-                    <tr>
-                @endforeach
-            </table>
-        </div>
-    </div>
     </div>
 @endsection

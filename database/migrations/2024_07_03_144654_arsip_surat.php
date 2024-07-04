@@ -11,12 +11,18 @@ return new class extends Migration
         Schema::create('arsip_surat', function (Blueprint $table) {
             $table->id();
             $table->string('no_surat');
-            $table->string('tgl_surat');
-            $table->string('tgl_surat_masuk');
+            $table->date('tgl_surat');
+            $table->date('tgl_surat_masuk');
             $table->string('perihal');
-            $table->string('departemen');
-            $table->string('pengirim_surat');
-            $table->string('file');
+            $table->foreignid('departemen_id')
+                ->constrained('departemen')
+                ->onUpdate('cascade')
+                ->onDelete('restrict');
+            $table->foreignid('pengirim_surat_id')
+                ->constrained('pengirim_surat')
+                ->onUpdate('cascade')
+                ->onDelete('restrict');
+            $table->string('berkas');
             $table->timestamps();
         });
     }
