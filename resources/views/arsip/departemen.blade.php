@@ -9,7 +9,7 @@
             <form method = "post" action = "{{ url('departemen') }}">
                 @csrf
                 <div class="form-group ">
-                    <label for="nama">Nama</label>
+                    <label for="nama">Nama Departemen</label>
                     <input type="text" class="form-control" id="nama" name="nama" required class = "form-control">
                 </div>
                 <button type="submit" name="bsimpan" class="btn btn-primary bi bi-save"> Simpan</button>
@@ -27,7 +27,7 @@
             <table class="table table-bordered table-hovered table-striped">
                 <tr class=text-center>
                     <th>No</th>
-                    <th>Nama</th>
+                    <th>Nama Departemen</th>
                     <th>Aksi</th>
                 </tr>
                 @foreach ($data as $d)
