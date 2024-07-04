@@ -37,7 +37,7 @@
                         <a class="nav-link" href="{{ url('tamudinas') }}">Tamu Dinas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="?halaman=tamu_pengawas">Tamu Khusus Pengawas</a>
+                        <a class="nav-link" href="{{ url('tamupengawas') }}">Tamu Khusus Pengawas</a>
                     </li>
                 </ul>
             </div>

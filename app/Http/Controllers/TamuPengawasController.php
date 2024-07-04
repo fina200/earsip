@@ -14,7 +14,7 @@ class TamuPengawasController extends Controller
     {
         //
         $data=TamuPengawas::all();
-        return view ('tamu.tamupengawas', compact('data'));
+        return view ('tamu.pengawas.index', compact('data'));
     }
 
     /**
@@ -68,6 +68,9 @@ class TamuPengawasController extends Controller
     public function edit(string $id)
     {
         //
+        $dataedit = TamuPengawas::find($id);
+        $data = TamuPengawas::all();
+        return view('tamu.pengawas.edit', compact(['data', 'dataedit']));
     }
 
     /**
@@ -76,6 +79,26 @@ class TamuPengawasController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $validateData = $request->validate(
+            [
+                'nama' => 'required|max:255',
+                'instansi' => 'required|max:255',
+                'tujuan' => 'required|max:255',
+                'saran' => 'required|max:255',
+            ],
+            [
+                'nama.required' => 'Nama harus diisi',
+                'nama.max' => 'Nama maksimal 255 karakter',
+                'instansi.required' => 'instansi harus diisi',
+                'instansi.max' => 'instansi maksimal 255 karakter',
+                'tujuan.required' => 'tujuan harus diisi',
+                'tujuan.max' => 'tujuan maksimal 255 karakter',
+                'saran.required' => 'saran harus diisi',
+                'saran.max' => 'saran maksimal 255 karakter',
+            ]
+        );
+        TamuPengawas::where('id', $id)->update($validateData);
+        return redirect('/tamupengawas');
     }
 
     /**
@@ -84,5 +107,7 @@ class TamuPengawasController extends Controller
     public function destroy(string $id)
     {
         //
+        TamuPengawas::destroy($id);
+        return redirect('/tamupengawas');
     }
 }
