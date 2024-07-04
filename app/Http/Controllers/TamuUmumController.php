@@ -14,7 +14,7 @@ class TamuUmumController extends Controller
     {
         //
         $data=TamuUmum::all();
-        return view ('tamu.tamuumum', compact('data'));
+        return view ('tamu.umum.index', compact('data'));
     }
 
     /**
@@ -65,6 +65,9 @@ class TamuUmumController extends Controller
     public function edit(string $id)
     {
         //
+        $dataedit = TamuUmum::find($id);
+        $data = TamuUmum::all();
+        return view('tamu.umum.edit', compact(['data', 'dataedit']));
     }
 
     /**
@@ -73,6 +76,23 @@ class TamuUmumController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $validateData = $request->validate(
+            [
+                'nama' => 'required|max:255',
+                'instansi' => 'required|max:255',
+                'tujuan' => 'required|max:255',
+            ],
+            [
+                'nama.required' => 'Nama harus diisi',
+                'nama.max' => 'Nama maksimal 255 karakter',
+                'instansi.required' => 'instansi harus diisi',
+                'instansi.max' => 'instansi maksimal 255 karakter',
+                'tujuan.required' => 'tujuan harus diisi',
+                'tujuan.max' => 'tujuan maksimal 255 karakter',
+            ]
+        );
+        TamuUmum::where('id', $id)->update($validateData);
+        return redirect('/tamuumum');
     }
 
     /**
@@ -81,5 +101,7 @@ class TamuUmumController extends Controller
     public function destroy(string $id)
     {
         //
+        TamuUmum::destroy($id);
+        return redirect('/tamuumum');
     }
 }
