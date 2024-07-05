@@ -10,7 +10,7 @@ class DepartemenController extends Controller
     public function index()
     {
         $data=Departemen::all();
-        return view ('arsip.departemen', compact('data'));
+        return view ('arsip.departemen.index', compact('data'));
     } 
     
     /**
@@ -56,6 +56,10 @@ class DepartemenController extends Controller
     public function edit(string $id)
     {
         //
+        $dataedit = Departemen::find($id);
+        $data = Departemen::all();
+        return view('arsip.departemen.edit', compact(['data', 'dataedit']));
+
     }
 
     /**
@@ -64,6 +68,18 @@ class DepartemenController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $validateData = $request->validate(
+            [
+                
+                'nama' => 'required|max:255',
+            ],
+            [
+                'nama.required' => 'Nama harus diisi',
+                'nama.max' => 'Nama maksimal 255 karakter',
+            ]
+        );
+        Departemen::where('id', $id)->update($validateData);
+        return redirect('/departemen');
     }
 
     /**
@@ -72,6 +88,8 @@ class DepartemenController extends Controller
     public function destroy(string $id)
     {
         //
+        Departemen::destroy($id);
+        return redirect('/departemen');
     }
 
 }

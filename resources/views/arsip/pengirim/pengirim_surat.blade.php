@@ -1,43 +1,43 @@
 @extends('template.main')
 
 @section('content')
-    @yield('tamudinas')
+    @yield('pengirim_surat')
 
     <div class="card mt-2">
         <div class="card-header bg-secondary text-white font-weight-bold">
-            Data Tamu Dinas
+            Data pengirim surat
         </div>
         <div class="card-body">
             <table class="table table-bordered table-hovered table-striped">
                 <tr class=text-center>
                     <th>No</th>
-                    <th>Nama Tamu</th>
-                    <th>Instansi</th>
-                    <th>Tujuan</th>
-                    <th>Saran</th>
+                    <th>Nama</th>
+                    <th>Alamat</th>
+                    <th>No HP</th>
+                    <th>Email</th>
                     <th>Aksi</th>
                 </tr>
                 @foreach ($data as $d)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $d->nama }}</td>
-                        <td>{{ $d->instansi }}</td>
-                        <td>{{ $d->tujuan }}</td>
-                        <td>{{ $d->saran }}</td>
+                        <td>{{ $d->alamat }}</td>
+                        <td>{{ $d->no_hp }}</td>
+                        <td>{{ $d->email }}</td>
                         <td>
-                            <a href="{{ url("tamudinas/$d->id/edit") }}" class="btn btn-outline-success bi bi-pencil"></a>
+                            <a href="{{ url("pengirim_surat/$d->id/edit") }}" class="btn btn-outline-success bi bi-pencil"></a>
 
-                            <Form action="{{ url("tamudinas/$d->id") }}" method="post" class="d-inline">
+                            <Form action="{{ url("pengirim_surat/$d->id") }}" method="post" class="d-inline">
                                 @method('delete')
                                 @csrf
                                 <button type="submit" class="btn btn-outline-danger bi bi-trash"
                                     onclick="return confirm ('Apakah anda yakin ingin menghapus data in?')"></button>
                             </Form>
-                        </td>
-                    <tr>
-                @endforeach
-            </table>
-        </div>
+                    </td>
+                <tr>
+            @endforeach
+        </table>
     </div>
-    </div>
+</div>
+</div>
 @endsection

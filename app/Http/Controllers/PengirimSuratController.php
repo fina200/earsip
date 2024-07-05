@@ -11,7 +11,7 @@ class PengirimSuratController extends Controller
     {
         //
         $data=PengirimSurat::all();
-        return view ('arsip.pengirim_surat', compact('data'));
+        return view ('arsip.pengirim.index', compact('data'));
     }
 
     /**
@@ -65,6 +65,9 @@ class PengirimSuratController extends Controller
     public function edit(string $id)
     {
         //
+        $dataedit = PengirimSurat::find($id);
+        $data = PengirimSurat::all();
+        return view('arsip.pengirim.edit', compact(['data', 'dataedit']));
     }
 
     /**
@@ -73,6 +76,26 @@ class PengirimSuratController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $validateData = $request->validate(
+            [
+                'nama' => 'required|max:255',
+                'alamat' => 'required|max:255',
+                'no_hp' => 'required|max:255',
+                'email' => 'required|max:255',
+            ],
+            [
+                'nama.required' => 'Nama harus diisi',
+                'nama.max' => 'Nama maksimal 255 karakter',
+                'alamat.required' => 'alamat harus diisi',
+                'alamat.max' => 'alamat maksimal 255 karakter',
+                'no_hp.required' => 'no_hp harus diisi',
+                'no_hp.max' => 'no_hp maksimal 255 karakter',
+                'email.required' => 'email harus diisi',
+                'email.max' => 'email maksimal 255 karakter',
+            ]
+        );
+        PengirimSurat::where('id', $id)->update($validateData);
+        return redirect('/pengirim_surat');
     }
 
     /**
@@ -81,6 +104,8 @@ class PengirimSuratController extends Controller
     public function destroy(string $id)
     {
         //
+        PengirimSurat::destroy($id);
+        return redirect('/pengirim_surat');
     }
 }
 
