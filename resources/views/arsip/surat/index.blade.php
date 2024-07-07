@@ -30,9 +30,14 @@
                         <td>{{ $d->pengirim_surat->nama . '/' . $d->pengirim_surat->no_hp }}</td>
                         <td>{{ $d->berkas }}</td>
                         <td>
-                            <a href="?halaman=arsip_surat&hal=edit&id=" class="btn btn-outline-success bi bi-pencil"> </a>
-                            <a href="?halaman=arsip_surat&hal=hapus&id=" class="btn btn-outline-danger bi bi-trash"
-                                onclick="return confirm ('Apakah anda yakin ingin menghapus data in?')"> </a>
+                            <a href="{{ url("arsip_surat/$d->id/edit") }}" class="btn btn-outline-success bi bi-pencil"></a>
+
+                            <Form action="{{ url("arsip_surat/$d->id") }}" method="post" class="d-inline">
+                                @method('delete')
+                                @csrf
+                                <button type="submit" class="btn btn-outline-danger bi bi-trash"
+                                    onclick="return confirm ('Apakah anda yakin ingin menghapus data in?')"></button>
+                            </Form>
                         </td>
                     <tr>
                 @endforeach
