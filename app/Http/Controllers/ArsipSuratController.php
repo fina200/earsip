@@ -81,7 +81,7 @@ class ArsipSuratController extends Controller
         //$data = ArsipSurat::all();
         $departemen = Departemen::all();
         $pengirim = PengirimSurat::all();
-        return view('arsip.surat.edit', compact(['data', 'dataedit']));
+        return view('arsip.surat.edit', compact(['departemen', 'pengirim', 'dataedit']));
     }
 
     /**
@@ -98,7 +98,7 @@ class ArsipSuratController extends Controller
                 'perihal' => 'required',
                 'departemen_id' => 'required',
                 'pengirim_surat_id' => 'required',
-                'berkas' => 'file|max:2048'
+                //'berkas' => 'file|max:2048'
             ],
             [
                 'no_surat.required' => 'no_surat harus diisi',

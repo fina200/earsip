@@ -6,7 +6,7 @@
             Form Data Arsip Surat LAURA
         </div>
         <div class="card-body ">
-            <form method = "post" action = "{{ url("pengirim_surat/$dataedit->id") }}" enctype="multipart/form-data">
+            <form method = "post" action = "{{ url("arsip_surat/$dataedit->id") }}" enctype="multipart/form-data">
                 @method('put')
                 @csrf
                 <div class="form-group ">
@@ -22,7 +22,7 @@
                 <div class="form-group ">
                     <label for="tgl_surat_masuk">Tanggal Diterima</label>
                     <input type="date" class="form-control" id="tgl_surat_masuk" name="tgl_surat_masuk" required
-                        class = "form-control"value="{{ $dataedit->tgl_surat_diterima }}">
+                        class = "form-control"value="{{ $dataedit->tgl_surat_masuk }}">
                 </div>
                 <div class="form-group ">
                     <label for="perihal">Perihal</label>
@@ -34,7 +34,7 @@
                     <select class="form-control" name="departemen_id" required class = "form-control"value="{{ $dataedit->departemen_id }}">
                         <option value="">- PILIH DEPARTEMEN -</option>
                         @foreach ($departemen as $d)
-                            <option value="{{ $d->id }}">{{ $d->nama }}</option>
+                            <option value="{{ $d->id }}" {{ $d->id == $dataedit->departemen_id ? 'SELECTED' : '' }}>{{ $d->nama }}</option>
                         @endforeach
                     </select>
                 </div>
