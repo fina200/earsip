@@ -11,8 +11,8 @@ class UserController extends Controller
     //
     public function index()
     {
-        $data=User::all();
-        return view ('arsip.user.index', compact('data'));
+        $data = User::with('departemen')->get();
+        return view ('user.index', compact('data'));
     }
 
         /**
@@ -22,7 +22,7 @@ class UserController extends Controller
     {
         //
         $departemen = Departemen::all();
-        return view('arsip.user.index', compact(['departemen']));
+        return view('user.index', compact(['departemen']));
     }
 
     /**
@@ -74,8 +74,9 @@ class UserController extends Controller
     {
         //
         $dataedit = User::find($id);
-        $data = User::all();
-        return view('arsip.user.edit', compact(['data', 'dataedit']));
+        //$data = User::all();
+        $departemen = Departemen::all();
+        return view('user.edit', compact(['departemen', 'dataedit']));
 
     }
 
