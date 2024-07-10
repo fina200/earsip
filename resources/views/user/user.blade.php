@@ -4,7 +4,7 @@
     @yield('user')
     <div class="card mt-2">
         <div class="card-header bg-secondary text-white font-weight-bold">
-            Data User dan Deprtemen
+            Data User 
         </div>
         <div class="card-body">
             <table class="table table-bordered table-hovered table-striped">

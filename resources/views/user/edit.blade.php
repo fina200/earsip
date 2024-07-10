@@ -3,7 +3,7 @@
 @section('user')
     <div class="card mt-2 ">
         <div class="card-header bg-secondary text-white font-weight-bold">
-            Form Tamu Umum
+            Form Registrasi User
         </div>
         <div class="card-body ">
             <form method = "post" action = "{{ url("user/$dataedit->id") }}">
@@ -29,11 +29,14 @@
                     <input type="text" class="form-control" id="role" name="role" required
                         class = "form-control"value="{{ $dataedit->role }}">
                 </div>
-                <div class="form-group ">
-                    <label for="departemen">Departmen</label>
-                    <input type="text" class="form-control" id="departemen" name="departemen" required
-                        class = "form-control"value="{{ $dataedit->departemen_id }}">
-                </div>
+                <label for="departemen_id">Departemen / Tujuan</label>
+                <select class="form-control" name="departemen_id" required class = "form-control"value="{{ $dataedit->departemen_id }}">
+                    <option value="">- PILIH DEPARTEMEN -</option>
+                    @foreach ($departemen as $d)
+                        <option value="{{ $d->id }}" {{ $d->id == $dataedit->departemen_id ? 'SELECTED' : '' }}>{{ $d->nama }}</option>
+                    @endforeach
+                </select>
+            </div>
                 <button type="submit" name="bsimpan" class="btn btn-primary bi bi-save"> Simpan</button>
                 <button type="reset" name="bbatal" class="btn btn-danger bi bi-x-square"> Batal</button>
             </form>
