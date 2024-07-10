@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\TamuUmumController;
 use App\Http\Controllers\TamuDinasController;
 use App\Http\Controllers\ArsipSuratController;
@@ -18,3 +19,4 @@ Route::resource('/tamuumum', TamuUmumController::class);
 Route::resource('/departemen', DepartemenController::class);
 Route::resource('/pengirim_surat', PengirimSuratController::class);
 Route::resource('/arsip_surat', ArsipSuratController::class);
+Route::resource('/user', UserController::class);
