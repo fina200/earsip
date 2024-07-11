@@ -1,4 +1,4 @@
-@extends('user.user')
+@extends('arsip.user.user')
 
 @section('user')
     <div class="card mt-2 ">

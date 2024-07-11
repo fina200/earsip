@@ -5,16 +5,17 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Departemen;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
     //
     public function index()
     {
-        $data = User::with('departemen')->get();
-        return view ('user.index', compact('data'));
+        $departemen = Departemen::all();
+        $data= User::with('departemen')->get();
+        return view ('arsip.user.index', compact('data','departemen'));
     }
-
         /**
      * Show the form for creating a new resource.
      */
@@ -22,7 +23,7 @@ class UserController extends Controller
     {
         //
         $departemen = Departemen::all();
-        return view('user.index', compact(['departemen']));
+        return view('arsip.user.index', compact(['departemen']));
     }
 
     /**
@@ -55,6 +56,9 @@ class UserController extends Controller
                 'departemen_id.max' => 'departemen maksimal 255 karakter',
             ]
         );
+        
+        //$validateData['password'] = bcrypt($validateData['password']);
+        $validateData['password'] = Hash::make($validateData['password']);
         User::create($validateData);
         return redirect('/user');
     }
@@ -76,7 +80,7 @@ class UserController extends Controller
         $dataedit = User::find($id);
         //$data = User::all();
         $departemen = Departemen::all();
-        return view('user.edit', compact(['departemen', 'dataedit']));
+        return view('arsip.user.edit', compact(['departemen', 'dataedit']));
 
     }
 

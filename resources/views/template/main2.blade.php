@@ -26,6 +26,7 @@
 
             <div class="collapse navbar-collapse " id="navbarSupportedContent">
                 <ul class="navbar-nav">
+                    {{-- jika role admin, akan keluar crud. Jika pegawai tidak akan keluar crud --}}
                     @if (Auth::user()->role == "admin")
                     <li class="nav-item active">
                         <a class="nav-link bi bi-house" href="/"> <span class="sr-only"></span></a>
@@ -40,16 +41,6 @@
                         <a class="nav-link" href="?halaman=arsip_surat">Data Arsip Surat</a>
                       </li>
                     @endif
-                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('tamuumum') }}">Tamu Umum</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('tamudinas') }}">Tamu Dinas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('tamupengawas') }}">Tamu Khusus Pengawas</a>
-                    </li>
                 </ul>
             </div>
         </div>

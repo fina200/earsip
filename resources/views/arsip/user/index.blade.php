@@ -1,4 +1,4 @@
-@extends('user.user')
+@extends('arsip.user.user')
 
 @section('user')
     <div class="card mt-2 ">
@@ -24,8 +24,13 @@
                 </div>
                 <div class="form-group ">
                     <label for="role">Role</label>
-                    <input type="text" class="form-control" id="role" name="role" required
-                        class = "form-control">
+                    <select class="form-control" name="role" required class = "form-control">
+                        <option value="pegawai">- PILIH ROLE -</option>
+                        <option value="pegawai">Pegawai</option>
+                        <option value="admin">Admin</option>
+                    </select>    
+                    {{-- <input type="text" class="form-control" id="role" name="role" required
+                        class = "form-control"> --}}
                 </div>
                 <div class="form-group ">
                     <label for="departemen_id">Departemen</label>
