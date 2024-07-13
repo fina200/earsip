@@ -26,21 +26,23 @@
 
             <div class="collapse navbar-collapse " id="navbarSupportedContent">
                 <ul class="navbar-nav">
-                    @if (Auth::user()->role == "admin")
+                    {{-- @if (Auth::user()->role == "admin")
                     <li class="nav-item active">
                         <a class="nav-link bi bi-house" href="/"> <span class="sr-only"></span></a>
                     </li>                        
-                    <li class="nav-item">
-                        <a class="nav-link" href="?halaman=departemen" >Data Departemen</a>
+                    <li class="nav-item"> 
+                        <a class="nav-link" href="{{ url('departemen') }}" >Data Departemen</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="?halaman=pengirim_surat">Data Pengirim Surat</a>
+                        <a class="nav-link" href="{{ url('pengirim_surat') }}">Data Pengirim Surat</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="?halaman=arsip_surat">Data Arsip Surat</a>
+                        <a class="nav-link" href="{{ url('arsip_surat') }}">Data Arsip Surat</a>
                       </li>
-                    @endif
-                    
+                    @endif --}}
+                    <li class="nav-item active">
+                        <a class="nav-link bi bi-house" href="/"> <span class="sr-only"></span></a>
+                    </li> 
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('tamuumum') }}">Tamu Umum</a>
                     </li>

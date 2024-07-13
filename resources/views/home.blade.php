@@ -24,7 +24,7 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Tamu Umum</h5>
-                    <a href="?halaman=tamu_umum" class="btn btn-primary">Tamu Umum </a>
+                    <a href="{{ url('tamuumum') }}" class="btn btn-primary">Tamu Umum </a>
                 </div>
             </div>
         </div>
@@ -32,7 +32,7 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Tamu Dinas</h5>
-                    <a href="?halaman=tamu_dinas" class="btn btn-primary">Tamu Dinas</a>
+                    <a href="{{ url('tamudinas') }}" class="btn btn-primary">Tamu Dinas</a>
                 </div>
             </div>
         </div>
@@ -40,7 +40,7 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Tamu Pengawas</h5>
-                    <a href="?halaman=tamu_pengawas" class="btn btn-primary">Tamu Pengawas</a>
+                    <a href="{{ url('tamupengawas') }}" class="btn btn-primary">Tamu Pengawas</a>
                 </div>
             </div>
         </div>

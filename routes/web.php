@@ -11,7 +11,7 @@ use App\Http\Controllers\TamuPengawasController;
 use App\Http\Controllers\PengirimSuratController;
 
 Route::get('/', function () {
-    return view('home');
+    return view('home', 'admin');
 });
 Route::get('/login', [AuthController::class, 'getLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'postLogin'])->name('login.store');

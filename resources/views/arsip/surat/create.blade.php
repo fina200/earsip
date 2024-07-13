@@ -1,9 +1,9 @@
-@extends('template.main')
+@extends('template.main2')
 
 @section('content')
     <div class="card mt-2 ">
         <div class="card-header bg-secondary text-white font-weight-bold">
-            Form Data Arsip Surat LAURA
+            Form Arsip Surat
         </div>
         <div class="card-body ">
             <form method = "post" action = "{{ url('arsip_surat') }}" enctype="multipart/form-data">
