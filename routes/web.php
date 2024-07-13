@@ -11,19 +11,21 @@ use App\Http\Controllers\TamuPengawasController;
 use App\Http\Controllers\PengirimSuratController;
 
 Route::get('/', function () {
-    return view('home', 'admin');
+    return view('home');
 });
 Route::get('/login', [AuthController::class, 'getLogin'])->name('login');
 Route::post('/login', [AuthController::class, 'postLogin'])->name('login.store');
 Route::post('/logout', [AuthController::class, 'postLogout'])->name('logout');
-Route::get('/admin', [AuthController::class, 'getAdmin'])->name('admin');
+Route::get('/admin', [AuthController::class, 'getAdmin'])->name('admin')->middleware('admin');
 
 
-Route::resource('/tamudinas', TamuDinasController::class);
+Route::resource('/tamudinas', TamuDinasController::class)->middleware('guest');
 Route::resource('/tamupengawas', TamuPengawasController::class);
 Route::resource('/tamuumum', TamuUmumController::class);
-Route::resource('/departemen', DepartemenController::class);
-Route::resource('/pengirim_surat', PengirimSuratController::class);
-Route::resource('/arsip_surat', ArsipSuratController::class);
-Route::resource('/user', UserController::class);
+Route::resource('/departemen', DepartemenController::class)->middleware('admin');
+Route::resource('/pengirim_surat', PengirimSuratController::class)->middleware('admin');
+Route::resource('/arsip_surat', ArsipSuratController::class)->middleware('admin');
+Route::get('/arsip_surat', [ArsipSuratController::class, 'index'])->name('homelogin')->middleware('auth');
+
+Route::resource('/user', UserController::class)->middleware('admin');
 // Route::resource('/admin', AuthController::class);
