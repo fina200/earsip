@@ -1,7 +1,7 @@
 @extends('template.main')
 
 @section('content')
-@yield('tamupengawas')
+    @yield('tamupengawas')
 
     <div class="card mt-2">
         <div class="card-header bg-secondary text-white font-weight-bold">
@@ -15,7 +15,9 @@
                     <th>Instansi</th>
                     <th>Tujuan</th>
                     <th>Saran</th>
-                    <th>Aksi</th>
+                    @can('admin')
+                        <th>Aksi</th>
+                    @endcan
                 </tr>
                 @foreach ($data as $d)
                     <tr>
@@ -24,16 +26,18 @@
                         <td>{{ $d->instansi }}</td>
                         <td>{{ $d->tujuan }}</td>
                         <td>{{ $d->saran }}</td>
-                        <td>
-                            <a href="{{ url("tamupengawas/$d->id/edit") }}" class="btn btn-outline-success bi bi-pencil"></a>
+                        @can('admin')
+                            <td>
+                                <a href="{{ url("tamupengawas/$d->id/edit") }}" class="btn btn-outline-success bi bi-pencil"></a>
 
-                            <Form action="{{ url("tamupengawas/$d->id") }}" method="post" class="d-inline">
-                                @method('delete')
-                                @csrf
-                                <button type="submit" class="btn btn-outline-danger bi bi-trash"
-                                    onclick="return confirm ('Apakah anda yakin ingin menghapus data in?')"></button>
-                            </Form>
-                        </td>
+                                <Form action="{{ url("tamupengawas/$d->id") }}" method="post" class="d-inline">
+                                    @method('delete')
+                                    @csrf
+                                    <button type="submit" class="btn btn-outline-danger bi bi-trash"
+                                        onclick="return confirm ('Apakah anda yakin ingin menghapus data in?')"></button>
+                                </Form>
+                            </td>
+                        @endcan
                     <tr>
                 @endforeach
             </table>

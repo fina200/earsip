@@ -11,7 +11,20 @@
                         <p class="lead ">Selamat Datang di SDN 1 Landasan Ulin Utara adalah Program yang akan memudahkan
                             anda dalam dalam mengisi Daftar Tamu</p>
                         <hr class="my-4">
-                        <a class="btn btn-success btn-lg" href="{{ route('login') }}" role="button">Login</a>
+                        @guest
+                            <a class="btn btn-success btn-lg" href="{{ route('login') }}" role="button">Login</a>
+                        @endguest
+
+                        @auth
+                            <a class="btn btn-primary btn-lg" href="/arsip_surat" role="button"> Arsip Surat</a>
+                            <form action="/logout" method="post" class="d-inline">
+                                @csrf
+                                <button type="submit" class="btn btn-danger btn-lg"
+                                    onclick="return confirm ('Apakah anda yakin ingin keluar dari halaman Administrator?')">Log
+                                    Out
+                                </button>
+                            </form>
+                        @endauth
                         {{-- <a class="btn btn-success btn-lg" href="{{ route('login') }}" role="button"
                             onclick="return confirm ('Apakah anda yakin ingin keluar dari halaman Daftar Tamu?')">Login</a> --}}
                     </div>

@@ -12,7 +12,7 @@
                 <div class="form-group ">
                     <label for="no_surat">Nomor Pengirim</label>
                     <input type="text" class="form-control" id="no_surat" name="no_surat" required class = "form-control"
-                    value="{{ $dataedit->no_surat }}">
+                        value="{{ $dataedit->no_surat }}">
                 </div>
                 <div class="form-group ">
                     <label for="tgl_surat">Tanggal Surat</label>
@@ -31,25 +31,28 @@
                 </div>
                 <div class="form-group ">
                     <label for="departemen_id">Departemen / Tujuan</label>
-                    <select class="form-control" name="departemen_id" required class = "form-control"value="{{ $dataedit->departemen_id }}">
+                    <select class="form-control" name="departemen_id" required class = "form-control">
                         <option value="">- PILIH DEPARTEMEN -</option>
                         @foreach ($departemen as $d)
-                            <option value="{{ $d->id }}" {{ $d->id == $dataedit->departemen_id ? 'SELECTED' : '' }}>{{ $d->nama }}</option>
+                            <option value="{{ $d->id }}" {{ $d->id == $dataedit->departemen_id ? 'SELECTED' : '' }}>
+                                {{ $d->nama }}</option>
                         @endforeach
                     </select>
                 </div>
                 <div class="form-group ">
                     <label for="pengirim_surat_id">Pengirim Surat</label>
-                    <select class="form-control" name="pengirim_surat_id" required class = "form-control" value="{{ $dataedit->pengirim_surat_id }}">
+                    <select class="form-control" name="pengirim_surat_id" required class = "form-control">
                         <option value="">- PILIH PENGIRIM -</option>
                         @foreach ($pengirim as $p)
-                            <option value="{{ $p->id }}">{{ $p->nama }}</option>
+                            <option value="{{ $p->id }}"
+                                {{ $p->id == $dataedit->pengirim_surat_id ? 'SELECTED' : '' }}>
+                                {{ $p->nama }}</option>
                         @endforeach
                     </select>
                 </div>
                 <div class="form-group ">
-                    <label for="berkas">Pilih berkas</label>
-                    <input type="berkas" class="form-control" id="berkas" name="berkas"value="{{ $dataedit->berkas }}">
+                    <label for="file">Pilih File</label>
+                    <input type="file" class="form-control" id="file" name="berkas">
                 </div>
                 <button type="submit" name="bsimpan" class="btn btn-primary">Simpan</button>
                 <button type="reset" name="bbatal" class="btn btn-danger">Batal</button>

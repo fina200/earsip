@@ -35,7 +35,9 @@
                         <td>{{ $d->perihal }}</td>
                         <td>{{ $d->departemen->nama }}</td>
                         <td>{{ $d->pengirim_surat->nama . '/' . $d->pengirim_surat->no_hp }}</td>
-                        <td>{{ $d->berkas }}</td>
+                        <td><a href="/{{ $d->berkas }}">
+                                <h5 class="d-inline"><i class="bi bi-file-earmark-pdf"></i></h5>Download
+                            </a></td>
                         @can('admin')
                             <td>
                                 {{-- jika role admin, akan keluar crud. Jika pegawai tidak akan keluar crud --}}
