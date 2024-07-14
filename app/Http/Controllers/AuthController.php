@@ -12,10 +12,10 @@ use Illuminate\Support\Facades\Auth;
 class AuthController extends Controller
 {
 
-    
+
     public function getLogin()
     {
-       return view('auth.login');
+        return view('auth.login');
     }
 
     //Proses login
@@ -26,31 +26,31 @@ class AuthController extends Controller
         // dd($credentials);
         if (Auth::attempt($credentials)) {
             // misal login sebagai pegawai maka akan tampil ke halaman rekap arsip
-            if(auth::user()->role == 'pegawai')
-            return redirect()->intended('arsip_surat');
-        
+            if (auth::user()->role == 'pegawai')
+                return redirect()->intended('arsip_surat');
+
             // misal login sebagai admin maka akan tampil ke halaman dashboard admin
-            elseif(auth::user()->role == 'admin')
+            elseif (auth::user()->role == 'admin')
                 return redirect()->intended('admin');
         }
-            return redirect()->back()->withErrors(['username' => 'salah.']);
-        
+        return redirect()->back()->withErrors(['username' => 'salah.']);
     }
 
     // postLogout untuk keluar dari session login
     public function postLogout(Request $request)
     {
         Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
         return redirect('/');
     }
 
     // halaman admin
     public function getAdmin()
     {
-    
+
         $data = Departemen::all();
 
-       return view('admin', compact(['data']));
+        return view('admin', compact(['data']));
     }
-
 }

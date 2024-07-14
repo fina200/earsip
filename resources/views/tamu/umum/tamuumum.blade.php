@@ -13,7 +13,9 @@
                     <th>Nama Tamu</th>
                     <th>Instansi</th>
                     <th>Tujuan</th>
-                    <th>Aksi</th>
+                    @can('admin')
+                        <th>Aksi</th>
+                    @endcan
                 </tr>
                 @foreach ($data as $d)
                     <tr>
@@ -21,16 +23,18 @@
                         <td>{{ $d->nama }}</td>
                         <td>{{ $d->instansi }}</td>
                         <td>{{ $d->tujuan }}</td>
-                        <td>
-                            <a href="{{ url("tamuumum/$d->id/edit") }}" class="btn btn-outline-success bi bi-pencil"></a>
+                        @can('admin')
+                            <td>
+                                <a href="{{ url("tamuumum/$d->id/edit") }}" class="btn btn-outline-success bi bi-pencil"></a>
 
-                            <Form action="{{ url("tamuumum/$d->id") }}" method="post" class="d-inline">
-                                @method('delete')
-                                @csrf
-                                <button type="submit" class="btn btn-outline-danger bi bi-trash"
-                                    onclick="return confirm ('Apakah anda yakin ingin menghapus data in?')"></button>
-                            </Form>
-                        </td>
+                                <Form action="{{ url("tamuumum/$d->id") }}" method="post" class="d-inline">
+                                    @method('delete')
+                                    @csrf
+                                    <button type="submit" class="btn btn-outline-danger bi bi-trash"
+                                        onclick="return confirm ('Apakah anda yakin ingin menghapus data in?')"></button>
+                                </Form>
+                            </td>
+                        @endcan
                     <tr>
                 @endforeach
             </table>

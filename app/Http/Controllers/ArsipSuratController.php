@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\ArsipSurat;
 use App\Models\Departemen;
-use App\Models\PengirimSurat;
 use Illuminate\Http\Request;
+use App\Models\PengirimSurat;
+use Illuminate\Support\Facades\Storage;
 
 class ArsipSuratController extends Controller
 {
@@ -35,7 +36,7 @@ class ArsipSuratController extends Controller
     {
         //
         //dd($request);
-        
+
         $validateData = $request->validate(
             [
                 'no_surat' => 'required|max:255',
@@ -98,7 +99,7 @@ class ArsipSuratController extends Controller
                 'perihal' => 'required',
                 'departemen_id' => 'required',
                 'pengirim_surat_id' => 'required',
-                //'berkas' => 'file|max:2048'
+                'berkas' => 'file|max:2048'
             ],
             [
                 'no_surat.required' => 'no_surat harus diisi',
@@ -111,7 +112,14 @@ class ArsipSuratController extends Controller
                 'pengirim_surat_id.required' => 'pengirim_surat harus diisi',
             ]
         );
-        
+        $arsip = ArsipSurat::find($id);
+        if ($request->file('berkas')) {
+            if ($arsip->berkas) {
+                Storage::delete($arsip->berkas);
+            }
+            $validateData['berkas'] = $request->file('berkas')->store('surat');
+        }
+
         ArsipSurat::where('id', $id)->update($validateData);
         return redirect('/arsip_surat');
     }
@@ -122,7 +130,21 @@ class ArsipSuratController extends Controller
     public function destroy(string $id)
     {
         //
+        $arsip = ArsipSurat::find($id);
+        if ($arsip->berkas) {
+            Storage::delete($arsip->berkas);
+        }
         ArsipSurat::destroy($id);
         return redirect('/arsip_surat');
+    }
+
+    public function downloadSurat(string $file)
+    {
+        $ekstensi = explode('.', $file);
+        $ekstensi = strtolower(end($ekstensi));
+
+        $id = ArsipSurat::where('berkas', "surat/$file")->first()->id;
+        $namafile = 'surat_' . $id . '.' . $ekstensi;
+        return response()->download(storage_path("app/surat/$file"), $namafile);
     }
 }
