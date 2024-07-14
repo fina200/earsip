@@ -30,7 +30,10 @@
                     @if (Auth::user()->role == "admin")
                     <li class="nav-item active">
                         <a class="nav-link bi bi-house" href="/admin"> <span class="sr-only"></span></a>
-                    </li>                        
+                    </li>  
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url('user') }}" >Data Register</a>
+                      </li>                      
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('departemen') }}" >Data Departemen</a>
                       </li>
