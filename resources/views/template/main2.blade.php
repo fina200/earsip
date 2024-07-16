@@ -29,11 +29,11 @@
                     {{-- jika role admin, akan keluar crud. Jika pegawai tidak akan keluar crud --}}
                     @if (Auth::user()->role == "admin")
                     <li class="nav-item active">
-                        <a class="nav-link bi bi-house" href="/admin"> <span class="sr-only"></span></a>
-                    </li>  
+                        <a class="nav-link bi bi-house" href="/"> <span class="sr-only"></span></a>
+                    </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('user') }}" >Data Register</a>
-                      </li>                      
+                        <a class="nav-link" href="{{ url('user') }}" >Data Registrasi</a>
+                      </li>                        
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('departemen') }}" >Data Departemen</a>
                       </li>
@@ -41,7 +41,7 @@
                         <a class="nav-link" href="{{ url('pengirim_surat') }}">Data Pengirim Surat</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="{{ url('arsip_surat') }}">Data Arsip Surat</a>
+                        <a class="nav-link" href="{{ url('arsip_surap') }}">Data Arsip Surat</a>
                       </li>
                     @endif
                 </ul>
