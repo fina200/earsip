@@ -26,6 +26,7 @@ Route::resource('/departemen', DepartemenController::class)->middleware('admin')
 Route::resource('/pengirim_surat', PengirimSuratController::class)->middleware('admin');
 Route::resource('/arsip_surat', ArsipSuratController::class)->middleware('admin');
 Route::get('/arsip_surat', [ArsipSuratController::class, 'index'])->name('homelogin')->middleware('auth');
+//Route::get('/departemen/search', [DepartemenController::class, 'search'])->name('homelogin')->middleware('auth');
 
 Route::resource('/user', UserController::class)->middleware('admin');
 // Route::resource('/admin', AuthController::class);

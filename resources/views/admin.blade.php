@@ -2,21 +2,21 @@
 
 @section('content')
 @yield('content')
-<div class="container">
+{{-- <div class="container"> --}}
     <div class="center">
         <div class="col-lg-12 mt-3">
-            <div class="jumbotron jumbotron-fluid">
+            <div class="jumbotron" style="max-width: 2200px;">
                 <div class="container">
                     <h1 class="display-4 "><img src="assets/logo2.png" alt="" width="120"> E-Arsip SDN 1 Landasan Ulin Utara</h1>
                     <p class="lead ">Selamat Datang E-Arsip SDN 1 Landasan Ulin Utara adalah Program yang akan memudahkan anda dalam mengarsip Surat Masuk, dan Daftar Tamu</p>
                     <hr class="my-4">
-                    <a class="btn btn-danger btn-lg" href="{{ route('login') }} " role="button" onclick="return confirm ('Apakah anda yakin ingin keluar dari halaman Administrator?')">Log Out</a>
-                    <a class="btn btn-danger btn-lg" href="../index.php" role="button" onclick="return confirm ('Apakah anda yakin ingin keluar dari halaman Administrator?')">Daftar Tamu</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<div class="container">
+<div class="center">
 <div class="row">
       <div class="col">
         <div class="card" >
