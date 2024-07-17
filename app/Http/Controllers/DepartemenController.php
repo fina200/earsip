@@ -7,15 +7,15 @@ use Illuminate\Http\Request;
 
 class DepartemenController extends Controller
 {
-    public function search(Request $request){
-        if($request->has('search')){
-            $data=Departemen::where('nama', 'LIKE', '%'.$request->search)->get();            
-        }else{
-            $data=Departemen::all();
-        }
+    // public function search(Request $request){
+    //     if($request->has('search')){
+    //         $data=Departemen::where('nama', 'LIKE', '%'.$request->search)->get();            
+    //     }else{
+    //         $data=Departemen::all();
+    //     }
         
-        return view('/departemen',['departemen' => $data]);
-    }
+        // return view('/departemen',['departemen' => $data]);
+    // }
     public function index()
     {
         $data=Departemen::all();
