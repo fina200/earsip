@@ -24,6 +24,7 @@ Route::resource('/tamudinas', TamuDinasController::class)->middleware('guest');
 Route::resource('/tamupengawas', TamuPengawasController::class);
 Route::resource('/tamuumum', TamuUmumController::class);
 Route::resource('/departemen', DepartemenController::class)->middleware('admin');
+// Route::resource('/departemen/search', DepartemenController::class, 'search')->middleware('admin');
 Route::resource('/pengirim_surat', PengirimSuratController::class)->middleware('admin');
 Route::resource('/arsip_surat', ArsipSuratController::class)->middleware('admin');
 Route::get('/arsip_surat', [ArsipSuratController::class, 'index'])->name('homelogin')->middleware('auth');
