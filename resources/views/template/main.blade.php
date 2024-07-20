@@ -9,7 +9,15 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
+    <link rel="stylesheet" href="//cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
+    
+    <link rel="stylesheet" href="{{ asset('style/assets/css/normalize.css') }}">
+    <link rel="stylesheet" href="{{ asset('style/assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('style/assets/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('style/assets/css/themify-icons.css') }}">
+    <link rel="stylesheet" href="{{ asset('style/assets/css/flag-icon.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('style/assets/css/cs-skin-elastic.css') }}">
+    
     <title>E-Arsip | SDN LANDASAN ULIN UTARA</title>
 </head>
 
@@ -26,7 +34,7 @@
 
             <div class="collapse navbar-collapse " id="navbarSupportedContent">
                 <ul class="navbar-nav">
-                    {{-- @if (Auth::user()->role == "admin")
+                    {{-- @if (Auth::user()->role == 'admin')
                     <li class="nav-item active">
                         <a class="nav-link bi bi-house" href="/"> <span class="sr-only"></span></a>
                     </li>                        
@@ -42,7 +50,7 @@
                     @endif --}}
                     <li class="nav-item active">
                         <a class="nav-link bi bi-house" href="/"> <span class="sr-only"></span></a>
-                    </li> 
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url('tamuumum') }}">Tamu Umum</a>
                     </li>
@@ -73,10 +81,15 @@
     </footer>
     <!-- akhir footer -->
     <!-- Optional JavaScript; choose one of the two! -->
-
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="assets/js//jquery-3.5.1.slim.min.js"></script>
     <script src="assets/js//bootstrap.min.js"></script>
+    <script src="//cdn.datatables.net/2.0.8/js/dataTables.min.js"></script>
+    <script>
+        let table = new DataTable('#my-table');
+    </script>
 </body>
 
 </html>
