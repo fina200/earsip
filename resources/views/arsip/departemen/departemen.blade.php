@@ -28,12 +28,11 @@
                                 <td>{{ $loop->iteration }}</td>
                                 <td>{{ $d->nama }}</td>
                                 <td>
-                                    <a href="{{ url("departemen/$d->id/edit") }}" class="btn btn-outline-success"><i
-                                            class="bi bi-pencil"></i></a>
+                                    <a href="{{ url("departemen/$d->id/edit") }}" class="btn btn-outline-success fa fa-pencil"></i></a>
                                     <Form action="{{ url("departemen/$d->id") }}" method="post" class="d-inline">
                                         @method('delete')
                                         @csrf
-                                        <button type="submit" class="btn btn-outline-danger bi bi-trash"
+                                        <button type="submit" class="btn btn-outline-danger fa fa-trash-o"
                                             onclick="return confirm ('Apakah anda yakin ingin menghapus data in?')"></button>
                                     </Form>
                                 </td>

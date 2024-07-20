@@ -29,11 +29,11 @@
                             <td>{{ $d->email }}</td>
                             <td>
                                 <a href="{{ url("pengirim_surat/$d->id/edit") }}"
-                                    class="btn btn-outline-success bi bi-pencil"></a>
+                                    class="btn btn-outline-success fa fa-pencil"></a>
                                 <Form action="{{ url("pengirim_surat/$d->id") }}" method="post" class="d-inline">
                                     @method('delete')
                                     @csrf
-                                    <button type="submit" class="btn btn-outline-danger bi bi-trash"
+                                    <button type="submit" class="btn btn-outline-danger fa fa-trash-o"
                                         onclick="return confirm ('Apakah anda yakin ingin menghapus data in?')"></button>
                                 </Form>
                             </td>

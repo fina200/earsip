@@ -29,12 +29,12 @@
                             <td>{{ $d->saran }}</td>
                             <td>
                                 <a href="{{ url("tamupengawas/$d->id/edit") }}"
-                                    class="btn btn-outline-success bi bi-pencil"></a>
+                                    class="btn btn-outline-success fa fa-pencil"></a>
 
                                 <Form action="{{ url("tamupengawas/$d->id") }}" method="post" class="d-inline">
                                     @method('delete')
                                     @csrf
-                                    <button type="submit" class="btn btn-outline-danger bi bi-trash"
+                                    <button type="submit" class="btn btn-outline-danger fa fa-trash-o"
                                         onclick="return confirm ('Apakah anda yakin ingin menghapus data in?')"></button>
                                 </Form>
                             </td>
