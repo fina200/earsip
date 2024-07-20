@@ -20,7 +20,7 @@ Route::get('/admin', [AuthController::class, 'getAdmin'])->name('admin')->middle
 
 
 
-Route::resource('/tamudinas', TamuDinasController::class)->middleware('guest');
+Route::resource('/tamudinas', TamuDinasController::class);
 Route::resource('/tamupengawas', TamuPengawasController::class);
 Route::resource('/tamuumum', TamuUmumController::class);
 Route::resource('/departemen', DepartemenController::class)->middleware('admin');

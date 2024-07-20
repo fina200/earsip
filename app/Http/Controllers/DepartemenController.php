@@ -7,21 +7,22 @@ use Illuminate\Http\Request;
 
 class DepartemenController extends Controller
 {
-    public function search(Request $request){
-        if($request->has('search')){
-            $data=Departemen::where('nama', 'LIKE', '%'.$request->search)->get();            
-        }else{
-            $data=Departemen::all();
+    public function search(Request $request)
+    {
+        if ($request->has('search')) {
+            $data = Departemen::where('nama', 'LIKE', '%' . $request->search)->get();
+        } else {
+            $data = Departemen::all();
         }
-        
-        return view('/departemen',['departemen' => $data]);
+
+        return view('/departemen', ['departemen' => $data]);
     }
     public function index()
     {
-        $data=Departemen::all();
-        return view ('arsip.departemen.index', compact('data'));
-    } 
-    
+        $data = Departemen::all();
+        return view('arsip.departemen.index', compact('data'));
+    }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -39,7 +40,7 @@ class DepartemenController extends Controller
 
         $validateData = $request->validate(
             [
-                
+
                 'nama' => 'required|max:255',
             ],
             [
@@ -68,7 +69,6 @@ class DepartemenController extends Controller
         $dataedit = Departemen::find($id);
         $data = Departemen::all();
         return view('arsip.departemen.edit', compact(['data', 'dataedit']));
-
     }
 
     /**
@@ -79,7 +79,7 @@ class DepartemenController extends Controller
         //
         $validateData = $request->validate(
             [
-                
+
                 'nama' => 'required|max:255',
             ],
             [
@@ -100,6 +100,4 @@ class DepartemenController extends Controller
         Departemen::destroy($id);
         return redirect('/departemen');
     }
-
-
 }
