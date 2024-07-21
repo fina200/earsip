@@ -22,25 +22,6 @@
                         <th>Pengirim</th>
                         <th>file</th>
 
-<<<<<<< HEAD
-                    @can('admin')
-                        <th>Aksi</th>
-                    @endcan
-                </tr>
-                @foreach ($data as $d)
-                    <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>{{ $d->no_surat }}</td>
-                        <td>{{ $d->tgl_surat }}</td>
-                        <td>{{ $d->tgl_surat_masuk }}</td>
-                        <td>{{ $d->perihal }}</td>
-                        <td>{{ $d->departemen->nama }}</td>
-                        <td>{{ $d->pengirim_surat->nama . '/' . $d->pengirim_surat->no_hp }}</td>
-                        <td><a href="/{{ $d->berkas }}">
-                                <h5 class="d-inline"><i class="bi bi-file-earmark-pdf"></i></h5>Download
-                            </a></td>
-=======
->>>>>>> fina
                         @can('admin')
                             <th>Aksi</th>
                         @endcan

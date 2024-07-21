@@ -16,31 +16,31 @@
     </div>
 </div>
 <div class="container">
-<div class="col">
-<div class="center">
-<div class="row">
-      <div class="col">
-        <div class="card" >
-          <div class="card-body">
-            <h5 class="card-title">Departemen</h5>
-            <a href="{{ url('departemen') }}" class="btn btn-primary">Departemen</a>
+    <div class="center">
+    <div class="row">
+          <div class="col">
+            <div class="card" >
+              <div class="card-body">
+                <h5 class="card-title">Departemen</h5>
+                <a href="{{ url('departemen') }}" class="btn btn-primary">Departemen</a>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="col">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Pengirim Surat</h5>
-                    <a href="{{ url('pengirim_surat') }}" class="btn btn-primary">Pengirim Surat</a>
-                </div>
+          <div class="col">
+            <div class="card" >
+              <div class="card-body">
+                <h5 class="card-title">Pengirim Surat</h5>
+                <a href="{{ url('pengirim_surat') }}" class="btn btn-primary">Pengirim Surat</a>
+              </div>
             </div>
-        </div>
-        <div class="col">
+          </div>
+          <div class="col">
             <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Arsip Surat</h5>
-                    <a href="{{ url('arsip_surat') }}" class="btn btn-primary">Arsip Surat</a>
-                </div>
+              <div class="card-body">
+                <h5 class="card-title">Arsip Surat</h5>
+                <a href="{{ url('arsip_surat') }}" class="btn btn-primary">Arsip Surat</a>
+              </div>
             </div>
-        </div>
+          </div>
     </div>
-@endsection
+    @endsection
