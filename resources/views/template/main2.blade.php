@@ -41,32 +41,6 @@
 
 <body>
 
-<<<<<<< HEAD
-            <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                <ul class="navbar-nav">
-                    {{-- jika role admin, akan keluar crud. Jika pegawai tidak akan keluar crud --}}
-                    @if (Auth::user()->role == "admin")
-                    <li class="nav-item active">
-                        <a class="nav-link bi bi-house" href="/admin"> <span class="sr-only"></span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('user') }}" >Data Register</a>
-                      </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('departemen') }}" >Data Departemen</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="{{ url('pengirim_surat') }}">Data Pengirim Surat</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="{{ url('arsip_surat') }}">Data Arsip Surat</a>
-                      </li>
-                    @endif
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/') }}">Daftar Tamu</a>
-                    </li>
-                </ul>
-=======
 
     <!-- Left Panel -->
 
@@ -79,7 +53,6 @@
                     <i class="fa fa-bars"></i>
                 </button>
                 <a class="  navbar-brand me-auto">E-Arsip LAURA</a>
->>>>>>> fina
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
